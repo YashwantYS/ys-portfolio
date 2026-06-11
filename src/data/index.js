@@ -41,6 +41,7 @@ export const caseStudies = [
     tag: 'Recruitment Technology',
     title: 'ZenAlpha ATS',
     headline: 'Enterprise Recruitment Operating System',
+    link: 'https://zenalpha-ats-frontend.vercel.app/',  // ADD THIS LINE
     description: 'Built a full-stack Applicant Tracking System to replace spreadsheet-based recruitment operations. Handles the complete hiring lifecycle from job creation to placement, serving the entire sourcing team.',
     problem: 'Recruitment operations ran on fragmented spreadsheets, emails, and manual processes. Pipeline visibility was zero, duplicate work was common, and leadership had no real-time data.',
     solution: 'Built a production ATS using AI-assisted development — a complete recruitment operating system with real-time pipeline visibility, automated communications, and analytics.',

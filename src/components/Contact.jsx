@@ -56,7 +56,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="font-display text-sm font-semibold text-white">LinkedIn</div>
-                <div className="font-mono text-xs text-slate-dim">linkedin.com/in/yashwantshukla</div>
+                <div className="font-mono text-xs text-slate-dim">linkedin.com/in/shuklayash11/</div>
               </div>
             </a>
 
@@ -69,7 +69,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="font-display text-sm font-semibold text-white">Email</div>
-                <div className="font-mono text-xs text-slate-dim">yashwant@example.com</div>
+                <div className="font-mono text-xs text-slate-dim">shuklays1999@gmail.com</div>
               </div>
             </a>
 
@@ -110,7 +110,7 @@ export default function Contact() {
                       placeholder={field.placeholder}
                       value={form[field.name]}
                       onChange={e => setForm(p => ({ ...p, [field.name]: e.target.value }))}
-                      className="w-full px-4 py-3 bg-white/3 border border-white/8 rounded-xl text-sm text-white placeholder:text-slate-dim focus:border-indigo/50 focus:bg-indigo/3 outline-none transition-all font-body"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder:text-slate-dim focus:border-indigo/50 outline-none transition-all font-body"style={{ color: '#F8FAFC', caretColor: '#6366F1' }}
                     />
                   </div>
                 ))}
@@ -122,7 +122,7 @@ export default function Contact() {
                     placeholder="Describe the problem you're trying to solve..."
                     value={form.message}
                     onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
-                    className="w-full px-4 py-3 bg-white/3 border border-white/8 rounded-xl text-sm text-white placeholder:text-slate-dim focus:border-indigo/50 focus:bg-indigo/3 outline-none transition-all resize-none font-body"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder:text-slate-dim focus:border-indigo/50 outline-none transition-all font-body"style={{ color: '#F8FAFC', caretColor: '#6366F1' }}
                   />
                 </div>
                 <button

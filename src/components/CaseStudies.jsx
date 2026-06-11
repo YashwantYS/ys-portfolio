@@ -206,6 +206,20 @@ function CaseStudyCard({ cs, index }) {
           <p className="font-mono text-[11px] text-cyan tracking-[0.15em] uppercase mb-3">{cs.tag} · {String(index + 1).padStart(2, '0')}</p>
           <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">{cs.title}</h3>
           <p className="text-slate-body text-sm mb-4">{cs.headline}</p>
+          <p className="text-slate-body text-sm mb-4">{cs.headline}</p>
+
+          {cs.link && (
+            
+              href={cs.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-mono font-medium bg-cyan/10 border border-cyan/25 text-cyan rounded-lg hover:bg-cyan/20 transition-colors"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse"></span>
+              Live Demo — ZenAlpha ATS
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+            </a>
+          )}
           <p className="text-slate-body/80 text-sm leading-relaxed mb-6">{cs.description}</p>
           <div className="flex flex-wrap gap-2 mb-6">
             {cs.tech.map(t => <TechPill key={t} label={t} />)}
