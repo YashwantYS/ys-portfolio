@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import { caseStudies } from '../data'
-import { ChevronDown, ExternalLink } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
 const colorMap = {
   cyan: { bg: 'bg-cyan/8', border: 'border-cyan/25', text: 'text-cyan' },
@@ -48,18 +48,15 @@ function ArchDiagram({ layers }) {
 function MockATS() {
   return (
     <div className="bg-bg-3 rounded-xl border border-white/7 overflow-hidden">
-      {/* Browser bar */}
       <div className="bg-slate-dim/10 px-4 py-2.5 border-b border-white/7 flex items-center gap-2">
         <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
         <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
         <div className="ml-2 flex-1 bg-white/5 border border-white/8 rounded-md px-3 py-1 font-mono text-[10px] text-slate-dim">
-          app.zenalpha.io/pipeline
+          zenalpha-ats-frontend.vercel.app
         </div>
       </div>
-      {/* Mock app content */}
       <div className="flex" style={{ minHeight: 200 }}>
-        {/* Sidebar */}
         <div className="w-28 flex-shrink-0 border-r border-white/7 p-3 space-y-1">
           {['Pipeline', 'Jobs', 'Candidates', 'Reports', 'Gmail Hub'].map((item, i) => (
             <div
@@ -70,7 +67,6 @@ function MockATS() {
             </div>
           ))}
         </div>
-        {/* Kanban */}
         <div className="flex-1 p-3 overflow-x-auto scrollbar-hide">
           <div className="flex gap-3" style={{ minWidth: 360 }}>
             {[
@@ -160,7 +156,6 @@ function MockReporting() {
             )
           })}
         </div>
-        {/* Fake bar chart */}
         <div className="space-y-1.5 pt-1">
           {[
             { name: 'Recruiter A', val: 92 },
@@ -200,26 +195,29 @@ function CaseStudyCard({ cs, index }) {
       transition={{ duration: 0.6, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
       className="rounded-2xl border border-white/7 overflow-hidden bg-bg-3"
     >
-      {/* Header */}
       <div className="p-6 sm:p-8 lg:p-10 grid lg:grid-cols-2 gap-8 lg:gap-12">
         <div>
-          <p className="font-mono text-[11px] text-cyan tracking-[0.15em] uppercase mb-3">{cs.tag} · {String(index + 1).padStart(2, '0')}</p>
+          <p className="font-mono text-[11px] text-cyan tracking-[0.15em] uppercase mb-3">
+            {cs.tag} · {String(index + 1).padStart(2, '0')}
+          </p>
           <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">{cs.title}</h3>
-          <p className="text-slate-body text-sm mb-4">{cs.headline}</p>
           <p className="text-slate-body text-sm mb-4">{cs.headline}</p>
 
           {cs.link && (
-            
+            <a
               href={cs.link}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 mb-4 text-xs font-mono font-medium bg-cyan/10 border border-cyan/25 text-cyan rounded-lg hover:bg-cyan/20 transition-colors"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse"></span>
-              Live Demo — ZenAlpha ATS
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+              Live Demo
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
             </a>
           )}
+
           <p className="text-slate-body/80 text-sm leading-relaxed mb-6">{cs.description}</p>
           <div className="flex flex-wrap gap-2 mb-6">
             {cs.tech.map(t => <TechPill key={t} label={t} />)}
@@ -233,13 +231,11 @@ function CaseStudyCard({ cs, index }) {
           </button>
         </div>
 
-        {/* Mock screenshot */}
         <div className="lg:self-start">
           {MockComponent && <MockComponent />}
         </div>
       </div>
 
-      {/* Expanded details */}
       <AnimatePresence>
         {expanded && (
           <motion.div
@@ -250,13 +246,10 @@ function CaseStudyCard({ cs, index }) {
             className="overflow-hidden"
           >
             <div className="border-t border-white/7 grid md:grid-cols-3">
-              {/* Problem */}
               <div className="p-6 sm:p-8 border-b md:border-b-0 md:border-r border-white/7">
                 <p className="font-mono text-[10px] text-indigo-light uppercase tracking-wider mb-3">Problem</p>
                 <p className="text-sm text-slate-body leading-relaxed">{cs.problem}</p>
               </div>
-
-              {/* Solution */}
               <div className="p-6 sm:p-8 border-b md:border-b-0 md:border-r border-white/7">
                 <p className="font-mono text-[10px] text-indigo-light uppercase tracking-wider mb-3">Solution</p>
                 <p className="text-sm text-slate-body leading-relaxed mb-4">{cs.solution}</p>
@@ -269,8 +262,6 @@ function CaseStudyCard({ cs, index }) {
                   ))}
                 </ul>
               </div>
-
-              {/* Architecture + Impact */}
               <div className="p-6 sm:p-8">
                 <p className="font-mono text-[10px] text-indigo-light uppercase tracking-wider mb-4">Architecture</p>
                 <ArchDiagram layers={cs.architecture} />
