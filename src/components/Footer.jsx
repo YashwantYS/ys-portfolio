@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Left */}
           <div>
             <div className="font-display text-lg font-bold text-white tracking-tight mb-1">Yashwant Shukla</div>
-            <div className="font-mono text-[11px] text-slate-dim tracking-widest uppercase">Manager — Automation & Operations</div>
+            <div className="font-mono text-[11px] text-slate-dim tracking-widest uppercase">Manager — Sourcing & Automation</div>
           </div>
 
           {/* Center links */}
