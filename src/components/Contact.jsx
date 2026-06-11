@@ -77,7 +77,7 @@ export default function Contact() {
             <div className="p-5 glass-card rounded-2xl mt-6">
               <p className="font-mono text-[11px] text-indigo-light uppercase tracking-wider mb-3">About</p>
               <p className="text-sm text-slate-body leading-relaxed">
-                Yashwant Shukla is a Manager — Automation & Operations based in Raipur, India. He uses AI-assisted development to build internal systems that eliminate manual work, improve team visibility, and scale operations without scaling headcount.
+                Yashwant Shukla is a Manager — Automation & Operations based in Sagar Madhya Pradesh, India. He uses AI-assisted development to build internal systems that eliminate manual work, improve team visibility, and scale operations without scaling headcount.
               </p>
             </div>
           </motion.div>
