@@ -108,7 +108,7 @@ export default function Hero() {
               <Icon size={16} />
             </a>
           ))}
-          <span className="text-xs font-mono text-slate-dim/60 tracking-widest uppercase ml-2">Raipur, India</span>
+          <span className="text-xs font-mono text-slate-dim/60 tracking-widest uppercase ml-2">Sagar Madhya Pradesh, India</span>
         </motion.div>
       </div>
 
