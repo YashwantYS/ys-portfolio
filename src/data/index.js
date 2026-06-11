@@ -29,7 +29,7 @@ export const timeline = [
   {
     year: '2026',
     role: 'Manager',
-    dept: 'Automation & Operations',
+    dept: 'Sourcing & Automation',
     desc: 'Leading automation strategy, system design, and operational intelligence initiatives across the organization. Now the person teams call when a process needs to be eliminated.',
     current: true,
   },

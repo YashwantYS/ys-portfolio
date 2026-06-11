@@ -31,7 +31,7 @@ export default function Hero() {
         >
           <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse-dot" />
           <span className="font-mono text-[11px] tracking-widest font-medium uppercase">
-            Manager — Automation & Operations
+            Manager — Sourcing & Automation
           </span>
         </motion.div>
 

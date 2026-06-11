@@ -46,50 +46,59 @@ function ArchDiagram({ layers }) {
 }
 
 function MockATS() {
+  const screenshots = [
+    "/images/Dashboard.png",
+    "/images/Pipeline.png",
+    "/images/Report.png",
+    "/images/Resume uploading.png"
+  ]
+
+  const [current, setCurrent] = useState(0)
+
+  const next = () =>
+    setCurrent((prev) => (prev + 1) % screenshots.length)
+
+  const prev = () =>
+    setCurrent((prev) =>
+      prev === 0 ? screenshots.length - 1 : prev - 1
+    )
+
   return (
     <div className="bg-bg-3 rounded-xl border border-white/7 overflow-hidden">
-      <div className="bg-slate-dim/10 px-4 py-2.5 border-b border-white/7 flex items-center gap-2">
-        <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
-        <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
-        <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
-        <div className="ml-2 flex-1 bg-white/5 border border-white/8 rounded-md px-3 py-1 font-mono text-[10px] text-slate-dim">
-          zenalpha-ats-frontend.vercel.app
-        </div>
+      <div className="relative">
+        <img
+          src={screenshots[current]}
+          alt="ATS Screenshot"
+          className="w-full h-auto rounded-xl"
+        />
+
+        <button
+          onClick={prev}
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded"
+        >
+          ←
+        </button>
+
+        <button
+          onClick={next}
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded"
+        >
+          →
+        </button>
       </div>
-      <div className="flex" style={{ minHeight: 200 }}>
-        <div className="w-28 flex-shrink-0 border-r border-white/7 p-3 space-y-1">
-          {['Pipeline', 'Jobs', 'Candidates', 'Reports', 'Gmail Hub'].map((item, i) => (
-            <div
-              key={item}
-              className={`px-2.5 py-1.5 rounded-md font-mono text-[10px] ${i === 0 ? 'bg-indigo/15 text-indigo-light' : 'text-slate-dim'}`}
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-        <div className="flex-1 p-3 overflow-x-auto scrollbar-hide">
-          <div className="flex gap-3" style={{ minWidth: 360 }}>
-            {[
-              { title: 'Sourced', cards: [{ name: 'Priya M.', role: 'Sr. Engineer' }, { name: 'Arjun K.', role: 'Product Manager' }] },
-              { title: 'Screening', cards: [{ name: 'Sneha R.', role: 'Designer' }] },
-              { title: 'Interview', cards: [{ name: 'Rahul V.', role: 'Lead Dev' }, { name: 'Neha S.', role: 'Analyst' }] },
-              { title: 'Offered', cards: [{ name: 'Ravi T.', role: 'Staff Eng', offered: true }] },
-            ].map(col => (
-              <div key={col.title} className="flex-1 min-w-[90px]">
-                <div className="font-mono text-[9px] text-slate-dim uppercase tracking-widest mb-2">{col.title}</div>
-                {col.cards.map(card => (
-                  <div
-                    key={card.name}
-                    className={`rounded-md p-2 mb-1.5 border text-[10px] ${card.offered ? 'border-emerald-500/30 bg-emerald-500/6' : 'border-white/7 bg-white/3'}`}
-                  >
-                    <div className={`font-semibold ${card.offered ? 'text-emerald-400' : 'text-white/80'}`}>{card.name}</div>
-                    <div className="text-slate-dim">{card.role}</div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+
+      <div className="flex justify-center gap-2 py-3">
+        {screenshots.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`w-2 h-2 rounded-full ${
+              current === index
+                ? "bg-cyan"
+                : "bg-white/30"
+            }`}
+          />
+        ))}
       </div>
     </div>
   )
