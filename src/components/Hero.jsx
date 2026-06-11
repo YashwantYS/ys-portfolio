@@ -94,8 +94,8 @@ export default function Hero() {
           className="flex items-center justify-center gap-4"
         >
           {[
-            { icon: Linkedin, href: 'https://linkedin.com/in/yashwantshukla', label: 'LinkedIn' },
-            { icon: Mail, href: 'mailto:yashwant@example.com', label: 'Email' },
+            { icon: Linkedin, href: 'https://www.linkedin.com/in/shuklayash11/', label: 'LinkedIn' },
+            { icon: Mail, href: 'mailto:shuklays1999@gmail.com', label: 'Email' },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={href}
