@@ -104,6 +104,67 @@ function MockATS() {
   )
 }
 
+function MockCBNexus() {
+  // Drop your screenshots into /public/images/cbnexus/ with these exact
+  // filenames (or edit this array to match whatever you name them).
+  const screenshots = [
+    "/images/cbnexus/Dashboard.png",
+    "/images/cbnexus/AdminSettings.png",
+    "/images/cbnexus/ApplyForLeave.png",
+    "/images/cbnexus/ScreeningCenter.png"
+  ]
+
+  const [current, setCurrent] = useState(0)
+
+  const next = () =>
+    setCurrent((prev) => (prev + 1) % screenshots.length)
+
+  const prev = () =>
+    setCurrent((prev) =>
+      prev === 0 ? screenshots.length - 1 : prev - 1
+    )
+
+  return (
+    <div className="bg-bg-3 rounded-xl border border-white/7 overflow-hidden">
+      <div className="relative">
+        <img
+          src={screenshots[current]}
+          alt="CB Nexus Screenshot"
+          className="w-full h-auto rounded-xl"
+        />
+
+        <button
+          onClick={prev}
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded"
+        >
+          ←
+        </button>
+
+        <button
+          onClick={next}
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded"
+        >
+          →
+        </button>
+      </div>
+
+      <div className="flex justify-center gap-2 py-3">
+        {screenshots.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`w-2 h-2 rounded-full ${
+              current === index
+                ? "bg-cyan"
+                : "bg-white/30"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function MockLeave() {
   return (
     <div className="bg-bg-3 rounded-xl border border-white/7 overflow-hidden">
@@ -187,6 +248,7 @@ function MockReporting() {
 
 const mockComponents = {
   zenalpha: MockATS,
+  'cb-nexus': MockCBNexus,
   'leave-management': MockLeave,
   'recruitment-suite': MockReporting,
 }
